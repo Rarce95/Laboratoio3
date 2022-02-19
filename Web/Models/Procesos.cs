@@ -15,7 +15,7 @@ namespace Web.Models
     {
 
         /// <summary>
-        /// 
+        ///     Metodo principal que reune la informacion de los diferentes metdos para construir la palabra
         /// </summary>
         /// <returns>palabra</returns>
         public string CrearPalabra()
@@ -44,9 +44,9 @@ namespace Web.Models
             return palabra;
         }
         /// <summary>
-        /// 
+        ///     Metodo de WebScraping que retorna un string directo del valor de un componente en una pagina web
         /// </summary>
-        /// <returns></returns>
+        /// <returns>value</returns>
         public string ObterValorWebScraping()
         {
             string value = "";
@@ -62,9 +62,9 @@ namespace Web.Models
             return value;
         }
         /// <summary>
-        /// 
+        ///     Retorna el valor almacenado en un TXT dentro del App_Data, se debe cambiar el path
         /// </summary>
-        /// <returns></returns>
+        /// <returns>value</returns>
         public string ObterValorDocTXT()
         {
             string value = "";
@@ -72,9 +72,9 @@ namespace Web.Models
             return value = letraTxt.ReadLine();
         }
         /// <summary>
-        /// 
+        ///     Retorna el valor almacenado en un XML dentro del App_Data, se debe cambiar el path
         /// </summary>
-        /// <returns></returns>
+        /// <returns>letra</returns>
         public string ObterValorXML()
         {
             XmlTextReader xmlText = new XmlTextReader(@"C:\Users\rarce\Documents\CENFOTEC\RogerArceCastro_Lab3\Laboratoio3\Web\App_Data\letra.xml");
@@ -90,9 +90,9 @@ namespace Web.Models
             return letra;
         }
         /// <summary>
-        /// 
+        ///     Retorna el valor almacenado en un JSON dentro del App_Data, se debe cambiar el path
         /// </summary>
-        /// <returns></returns>
+        /// <returns>letra</returns>
         public string ObterValorJSON()
         {
             Palabra letra = new Palabra() ;
@@ -105,7 +105,7 @@ namespace Web.Models
             return letra.texto;
         }
         /// <summary>
-        /// 
+        ///     Retorna el valor almacenado en un XLSX dentro del App_Data, se debe cambiar el path
         /// </summary>
         /// <returns></returns>
         public string ObterValorExcel()
@@ -116,7 +116,7 @@ namespace Web.Models
             return letra = sl.GetCellValueAsString(1, 1);
         }
         /// <summary>
-        /// 
+        ///     Retorna el valor almacenado en un PDF dentro del App_Data, se debe cambiar el path
         /// </summary>
         /// <returns></returns>
         public string ObterValorPDF()
@@ -133,9 +133,9 @@ namespace Web.Models
             return text.ToString();
         }
         /// <summary>
-        /// 
+        ///     Retorna un valor almacenado dentro de una variable de tipo Dictionary
         /// </summary>
-        /// <returns></returns>
+        /// <returns>letraDict</returns>
         public string ObterValorDictionary()
         {
             Dictionary<string, string> letraDict = new Dictionary<string, string>();
@@ -146,9 +146,9 @@ namespace Web.Models
             return letraDict["a"];
         }
         /// <summary>
-        /// 
+        ///     Retorna un valor de una lista de string
         /// </summary>
-        /// <returns></returns>
+        /// <returns>listChar</returns>
         public string ObterValorListaString()
         {
             List<string> listChar = new List<string>();
@@ -160,9 +160,9 @@ namespace Web.Models
             return listChar[0];
         }
         /// <summary>
-        /// 
+        ///     Retorna un valor de una cola de prioridad 
         /// </summary>
-        /// <returns></returns>
+        /// <returns>value</returns>
         public string ObterLetraQueue()
         {
             var value = "";
@@ -173,25 +173,25 @@ namespace Web.Models
             return value;
         }
         /// <summary>
-        /// 
+        ///     Retorna un string
         /// </summary>
-        /// <returns></returns>
+        /// <returns>string</returns>
         public string ObterLetraString()
         {
             return "u";
         }
         /// <summary>
-        /// 
+        ///     Retorna un char
         /// </summary>
-        /// <returns></returns>
+        /// <returns>char</returns>
         public char ObterValorChar()
         {
             return 'd';
         }
         /// <summary>
-        /// 
+        ///     Retorna el valor almacenado en un objeto
         /// </summary>
-        /// <returns></returns>
+        /// <returns>palabra.texto</returns>
         public string ObterValorObjeto()
         {
             Palabra palabra = new Palabra();
@@ -201,9 +201,9 @@ namespace Web.Models
             return palabra.texto;
         }
         /// <summary>
-        /// 
+        ///     Retorna un valor concreto dentro de una matriz
         /// </summary>
-        /// <returns></returns>
+        /// <returns>matriz</returns>
         public string ObterValorMatriz()
         {
             string[,] matriz = new string[1, 1];
@@ -212,17 +212,17 @@ namespace Web.Models
             return matriz[0, 0];
         }
         /// <summary>
-        /// 
+        ///     Retorna un char precedente de codigo ASCII
         /// </summary>
-        /// <returns></returns>
+        /// <returns>char</returns>
         public char ObterValorASCII()
         {
             return Convert.ToChar(44);
         }
         /// <summary>
-        /// 
+        ///     Retorna el valor de una posicion concreta dentro de un vector
         /// </summary>
-        /// <returns></returns>
+        /// <returns>letras</returns>
         public string ObterValorVector()
         {
             string[] letras = new string[5];
@@ -236,40 +236,40 @@ namespace Web.Models
 
         }
         /// <summary>
-        /// 
+        ///     Retorna un valor entero
         /// </summary>
-        /// <returns></returns>
+        /// <returns>int</returns>
         public int ObterValorInt()
         {
             return 2;
         }
         /// <summary>
-        /// 
+        ///     Retorna un valor decimal
         /// </summary>
-        /// <returns></returns>
+        /// <returns>decimal</returns>
         public decimal ObterValorDecimal()
         {
             return 0;
         }
         /// <summary>
-        /// 
+        ///     Retorna el valor de la variable que ingresa por parametros
         /// </summary>
         /// <param name="letra"></param>
-        /// <returns></returns>
+        /// <returns>int</returns>
         public int ObterValorParametro(int letra)
         {
             return letra;
         }
         /// <summary>
-        /// 
+        ///     Retorna un valor flotante
         /// </summary>
-        /// <returns></returns>
+        /// <returns>float</returns>
         public float ObterValorFloat()
         {
             return 2;
         }
         /// <summary>
-        /// 
+        ///     Retorna el valor almacenado en un CSV dentro del App_Data, se debe cambiar el path
         /// </summary>
         /// <returns></returns>
         public string ObterValorCSV()
