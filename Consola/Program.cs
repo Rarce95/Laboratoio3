@@ -1,6 +1,5 @@
 ﻿
 using System;
-using System.Threading.Tasks;
 
 namespace Consola
 {
@@ -8,7 +7,8 @@ namespace Consola
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(new Procesos().CrearPalabra());
+            Web.Models.Procesos procesos = new Web.Models.Procesos(); 
+            Console.WriteLine(procesos.CrearPalabra());
         }
     }
 }

@@ -1,21 +1,19 @@
-﻿using Consola.Models;
-using iText.Kernel.Pdf;
-using iText.Kernel.Pdf.Canvas.Parser;
-using Newtonsoft.Json;
-using SpreadsheetLight;
-using System;
-using System.Collections;
+﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections;
+using System.IO;
 using System.Xml;
+using iText.Kernel.Pdf.Canvas.Parser;
+using SpreadsheetLight;
+using iText.Kernel.Pdf;
+using Newtonsoft.Json;
 
-namespace Consola
+namespace Web.Models
 {
     public class Procesos
     {
+
         /// <summary>
         /// 
         /// </summary>
@@ -23,7 +21,7 @@ namespace Consola
         public string CrearPalabra()
         {
             string palabra = "";
-            palabra = ObterValorWebScraping()+""+
+            palabra = ObterValorWebScraping() + "" +
                       ObterValorDocTXT() + "" +
                       ObterValorXML() + "" +
                       ObterValorJSON() + "" +
@@ -62,7 +60,7 @@ namespace Consola
             }
             value = lista.FirstOrDefault(x => x.Length > 0);
             return value;
-        } //V
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -70,16 +68,16 @@ namespace Consola
         public string ObterValorDocTXT()
         {
             string value = "";
-            TextReader letraTxt = new StreamReader("letra.txt");
+            TextReader letraTxt = new StreamReader(@"C:\Users\rarce\Documents\CENFOTEC\RogerArceCastro_Lab3\Laboratoio3\Web\App_Data\letra.txt");
             return value = letraTxt.ReadLine();
-        }//i
+        }
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
         public string ObterValorXML()
         {
-            XmlTextReader xmlText = new XmlTextReader("letra.xml");
+            XmlTextReader xmlText = new XmlTextReader(@"C:\Users\rarce\Documents\CENFOTEC\RogerArceCastro_Lab3\Laboratoio3\Web\App_Data\letra.xml");
             XmlDocument doc = new XmlDocument();
             XmlNode node = doc.ReadNode(xmlText);
             var letra = "";
@@ -90,40 +88,40 @@ namespace Consola
 
             }
             return letra;
-        }//s
+        }
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
         public string ObterValorJSON()
         {
-            Palabra letra;
-            string path = @"letra.json";
+            Palabra letra = new Palabra() ;
+            string path = @"C:\Users\rarce\Documents\CENFOTEC\RogerArceCastro_Lab3\Laboratoio3\Web\App_Data\letra.json";
             using (StreamReader jsonStream = File.OpenText(path))
             {
                 var json = jsonStream.ReadToEnd();
                 letra = JsonConvert.DeserializeObject<Palabra>(json);
             }
             return letra.texto;
-        }//u
+        }
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
         public string ObterValorExcel()
         {
-            string path = "letra.xlsx";
+            string path = @"C:\Users\rarce\Documents\CENFOTEC\RogerArceCastro_Lab3\Laboratoio3\Web\App_Data\letra.xlsx";
             string letra = "";
             SLDocument sl = new SLDocument(path);
-            return  letra = sl.GetCellValueAsString(1, 1);
-        }//a
+            return letra = sl.GetCellValueAsString(1, 1);
+        }
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
         public string ObterValorPDF()
         {
-            var pdf = new PdfDocument(new PdfReader("letra.pdf"));
+            var pdf = new PdfDocument(new PdfReader(@"C:\Users\rarce\Documents\CENFOTEC\RogerArceCastro_Lab3\Laboratoio3\Web\App_Data\letra.pdf"));
             string text = "";
 
             for (int i = 1; i <= pdf.GetNumberOfPages(); i++)
@@ -133,7 +131,7 @@ namespace Consola
             }
 
             return text.ToString();
-        }//l
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -141,12 +139,12 @@ namespace Consola
         public string ObterValorDictionary()
         {
             Dictionary<string, string> letraDict = new Dictionary<string, string>();
-            letraDict.Add("a"," ");
+            letraDict.Add("a", " ");
             letraDict.Add("b", "x");
             letraDict.Add("c", "l");
 
             return letraDict["a"];
-        }//
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -160,7 +158,7 @@ namespace Consola
             listChar.Add("H");
 
             return listChar[0];
-        }//S
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -173,7 +171,7 @@ namespace Consola
 
             value = valorQueue.Peek().ToString();
             return value;
-        }//t
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -181,7 +179,7 @@ namespace Consola
         public string ObterLetraString()
         {
             return "u";
-        }//u
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -189,7 +187,7 @@ namespace Consola
         public char ObterValorChar()
         {
             return 'd';
-        }//d
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -201,18 +199,18 @@ namespace Consola
             palabra.cantidadLetras = palabra.texto.Length;
 
             return palabra.texto;
-        }//i
+        }
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
         public string ObterValorMatriz()
         {
-            string[,] matriz = new string[1,1];
+            string[,] matriz = new string[1, 1];
 
-            matriz[0,0] = "o";
+            matriz[0, 0] = "o";
             return matriz[0, 0];
-        }//o
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -220,7 +218,7 @@ namespace Consola
         public char ObterValorASCII()
         {
             return Convert.ToChar(44);
-        }//,
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -236,7 +234,7 @@ namespace Consola
 
             return letras[3];
 
-        }//
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -244,7 +242,7 @@ namespace Consola
         public int ObterValorInt()
         {
             return 2;
-        }//2
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -252,7 +250,7 @@ namespace Consola
         public decimal ObterValorDecimal()
         {
             return 0;
-        }//0
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -261,7 +259,7 @@ namespace Consola
         public int ObterValorParametro(int letra)
         {
             return letra;
-        }//2
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -269,17 +267,15 @@ namespace Consola
         public float ObterValorFloat()
         {
             return 2;
-        }//2
+        }
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
         public string ObterValorCSV()
         {
-            string[] letra = File.ReadAllLines("letra.csv");
+            string[] letra = File.ReadAllLines(@"C:\Users\rarce\Documents\CENFOTEC\RogerArceCastro_Lab3\Laboratoio3\Web\App_Data\letra.csv");
             return letra[0];
-        }//.
-
-
+        }
     }
 }
