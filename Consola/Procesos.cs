@@ -19,6 +19,35 @@ namespace Consola
         /// <summary>
         /// 
         /// </summary>
+        /// <returns>palabra</returns>
+        public string CrearPalabra()
+        {
+            string palabra = "";
+            palabra = ObterValorWebScraping()+""+
+                      ObterValorDocTXT() + "" +
+                      ObterValorXML() + "" +
+                      ObterValorJSON() + "" +
+                      ObterValorExcel() + "" +
+                      ObterValorPDF() + "" +
+                      ObterValorDictionary() + "" +
+                      ObterValorListaString() + "" +
+                      ObterLetraQueue() + "" +
+                      ObterLetraString() + "" +
+                      ObterValorChar() + "" +
+                      ObterValorObjeto() + "" +
+                      ObterValorMatriz() + "" +
+                      ObterValorASCII() + "" +
+                      ObterValorVector() + "" +
+                      ObterValorInt() + "" +
+                      ObterValorDecimal() + "" +
+                      ObterValorParametro(2) + "" +
+                      ObterValorFloat() + "" +
+                      ObterValorCSV();
+            return palabra;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
         /// <returns></returns>
         public string ObterValorWebScraping()
         {
@@ -75,7 +104,7 @@ namespace Consola
                 var json = jsonStream.ReadToEnd();
                 letra = JsonConvert.DeserializeObject<Palabra>(json);
             }
-            return letra.palabra;
+            return letra.texto;
         }//u
         /// <summary>
         /// 
@@ -105,18 +134,45 @@ namespace Consola
 
             return text.ToString();
         }//l
-
-        public void ObterValorDictionary()
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public string ObterValorDictionary()
         {
-            Dictionary<string, int> letraDict = new Dictionary<string, int>();
+            Dictionary<string, string> letraDict = new Dictionary<string, string>();
+            letraDict.Add("a"," ");
+            letraDict.Add("b", "x");
+            letraDict.Add("c", "l");
+
+            return letraDict["a"];
         }//
-        public void ObterValorListaString()
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public string ObterValorListaString()
         {
             List<string> listChar = new List<string>();
+            listChar.Add("S");
+            listChar.Add("R");
+            listChar.Add("G");
+            listChar.Add("H");
+
+            return listChar[0];
         }//S
-        public void ObterLetraQueue()
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public string ObterLetraQueue()
         {
+            var value = "";
             Queue valorQueue = new Queue();
+            valorQueue.Enqueue("t");
+
+            value = valorQueue.Peek().ToString();
+            return value;
         }//t
         /// <summary>
         /// 
@@ -134,13 +190,28 @@ namespace Consola
         {
             return 'd';
         }//d
-        public void ObterValorObjeto()
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public string ObterValorObjeto()
         {
+            Palabra palabra = new Palabra();
+            palabra.texto = "i";
+            palabra.cantidadLetras = palabra.texto.Length;
 
+            return palabra.texto;
         }//i
-        public void ObterValorMatriz()
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public string ObterValorMatriz()
         {
+            string[,] matriz = new string[1,1];
 
+            matriz[0,0] = "o";
+            return matriz[0, 0];
         }//o
         /// <summary>
         /// 
@@ -150,8 +221,20 @@ namespace Consola
         {
             return Convert.ToChar(44);
         }//,
-        public void ObterValorVector()
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public string ObterValorVector()
         {
+            string[] letras = new string[5];
+            letras[0] = "a";
+            letras[1] = "b";
+            letras[2] = "c";
+            letras[3] = " ";
+            letras[4] = "e";
+
+            return letras[3];
 
         }//
         /// <summary>
@@ -175,9 +258,9 @@ namespace Consola
         /// </summary>
         /// <param name="letra"></param>
         /// <returns></returns>
-        public int ObterValorParametro(string letra)
+        public int ObterValorParametro(int letra)
         {
-            return Convert.ToInt32(letra);
+            return letra;
         }//2
         /// <summary>
         /// 

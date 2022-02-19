@@ -8,6 +8,7 @@ namespace Consola.Models
 {
     public class Palabra
     {
-        public string palabra { get; set; }
+        public string texto { get; set; }
+        public int? cantidadLetras { get; set; }
     }
 }
